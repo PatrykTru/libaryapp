@@ -29,6 +29,8 @@ public class Book {
     private Long eanNumber;
     @OneToOne
     private Price price;
+    @Lob
+    private Byte[] image;
 
     @ManyToMany
     @JoinTable(name = "book_category" ,joinColumns = @JoinColumn(name = "book_id"),
