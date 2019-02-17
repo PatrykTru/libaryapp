@@ -10,13 +10,13 @@ import tru.springframework.com.libaryapp.services.BookService;
 @Controller
 public class IndexController {
 
-        BookService bookService;
+       private BookService bookService;
 
     public IndexController(BookService bookService) {
         this.bookService = bookService;
     }
 
-    @RequestMapping({"" ,"/" , "index"})
+    @GetMapping({"" ,"/" , "index"})
     public String getIndexPage(Model model){
     model.addAttribute("books", bookService.getBooks());
 

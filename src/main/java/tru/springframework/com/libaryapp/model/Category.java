@@ -1,5 +1,6 @@
 package tru.springframework.com.libaryapp.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@Builder
 @Entity
 public class Category {
     @Id

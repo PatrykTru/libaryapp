@@ -12,6 +12,7 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
+@Builder
 @Entity
 public class Price {
 
