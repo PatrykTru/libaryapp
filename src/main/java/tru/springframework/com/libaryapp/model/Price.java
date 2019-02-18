@@ -2,6 +2,7 @@ package tru.springframework.com.libaryapp.model;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -12,9 +13,15 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
-@Builder
+@NoArgsConstructor
 @Entity
 public class Price {
+
+    @Builder
+    public Price(Double value, Currency currency) {
+        this.value = value;
+        this.currency = currency;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

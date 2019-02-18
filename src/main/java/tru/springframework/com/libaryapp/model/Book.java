@@ -1,9 +1,7 @@
 package tru.springframework.com.libaryapp.model;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,9 +12,23 @@ import java.util.Set;
 
 @Getter
 @Setter
-@Builder
 @Entity
+@NoArgsConstructor
 public class Book {
+
+    @Builder
+    public Book(String bookName, Author author, Publisher publisher, String description, int numberOfPages, LocalDate publishDate, CoverType coverType, BigInteger eanNumber, Price price, String imageName) {
+        this.bookName = bookName;
+        this.author = author;
+        this.publisher = publisher;
+        this.description = description;
+        this.numberOfPages = numberOfPages;
+        this.publishDate = publishDate;
+        this.coverType = coverType;
+        this.eanNumber = eanNumber;
+        this.price = price;
+        this.imageName = imageName;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +40,7 @@ public class Book {
     private Author author;
     @OneToOne
     private Publisher publisher;
+    @Lob
     private String description;
     private int numberOfPages;
     private LocalDate publishDate;
@@ -37,11 +50,12 @@ public class Book {
     private Price price;
     @Lob
     private Byte[] image;
+    private String imageName;
 
     @ManyToMany
     @JoinTable(name = "book_category" ,joinColumns = @JoinColumn(name = "book_id"),
     inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories =  new HashSet<>();
+    private final Set<Category> categories =  new HashSet<>();
 
 
 
