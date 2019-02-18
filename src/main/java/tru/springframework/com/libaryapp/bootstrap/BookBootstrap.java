@@ -97,7 +97,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         Price price1 = Price.builder().currency(Currency.ZŁ).value(31.92).build();
         priceRepository.save(price1);
 
-        Book book1 = Book.builder().author(author1).coverType(CoverType.SOFT).description("" +
+        Book book1 = Book.builder().author(author1).coverType(CoverType.SOFT).imageName("piekaraImage.jpg").description("" +
                 "\n" +
                 "\n" +
                 "Arnold Lowefell i Mordimer Madderdin wspólnie ruszają do walki!\n" +
@@ -124,7 +124,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         Price price2 = Price.builder().currency(Currency.ZŁ).value(40.00).build();
         priceRepository.save(price2);
 
-        Book book2 = Book.builder().author(author2).coverType(CoverType.HARD).description("" +
+        Book book2 = Book.builder().author(author2).coverType(CoverType.HARD).imageName("dayImage.jpg").description("" +
                 "\n" +
                 "Szczegóły\n" +
                 "Mroczna strona zmysłowości. Jak wiele można zaryzykować w imię pożądliwej, szaleńczej miłości? Czy trudna przeszłość Evy i Gideona stanie na przeszkodzie do ich szczęścia?\n" +
@@ -148,7 +148,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         Price price3 = Price.builder().currency(Currency.ZŁ).value(35.90).build();
         priceRepository.save(price3);
 
-        Book book3 = Book.builder().author(author3).coverType(CoverType.SOFT).description("" +
+        Book book3 = Book.builder().author(author3).coverType(CoverType.SOFT).imageName("carrisiImage.jpg").description("" +
                 "Gdy zapadają ciemności, pojawia się strach...\n" +
                 "\n" +
                 "\n" +
@@ -173,7 +173,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         Price price4 = Price.builder().currency(Currency.ZŁ).value(32.30).build();
         priceRepository.save(price4);
 
-        Book book4 = Book.builder().author(author4).coverType(CoverType.HARD).description("" +
+        Book book4 = Book.builder().author(author4).coverType(CoverType.HARD).imageName("obamaImage.jpg").description("" +
                "Osobiste wspomnienia najbardziej lubianej Pierwszej Damy Stanów Zjednoczonych\n" +
                 "\n" +
                 "\n" +
@@ -195,7 +195,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         Price price5 = Price.builder().currency(Currency.ZŁ).value(29.90).build();
         priceRepository.save(price5);
 
-        Book book5 = Book.builder().author(author5).coverType(CoverType.SOFT).description("" +
+        Book book5 = Book.builder().author(author5).coverType(CoverType.SOFT).imageName("staszakImage.jpg").description("" +
                "Czyn zbrojny powstania wielkopolskiego nie ma szczęścia w trafianiu do zbiorowej świadomości Polaków. O ile legionowa maciejówka czy błękitny mundur armii Hallera są dość powszechnie znane, to przybrana biało-czerwoną rozetką feldmyca czy późniejsza wielkopolska rogatywka wciąż muszą przebijać swą drogę do narodowej pamięci. Podobnie jest z powstańczymi bitwami. Trwające ponad półtora miesiąca walki, w których uczestniczyła artyleria i pociągi pancerne, ciągle nie są powszechnie znane, a nierzadko niewiele wiedzą o nich nawet mieszkańcy miejscowości, o które toczył się bój.\n" +
                 "\n" +
                 "\n" +
