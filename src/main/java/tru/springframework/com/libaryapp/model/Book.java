@@ -44,6 +44,7 @@ public class Book {
     private String description;
     private int numberOfPages;
     private LocalDate publishDate;
+    @Enumerated(value = EnumType.STRING)
     private CoverType coverType;
     private BigInteger eanNumber;
     @OneToOne
