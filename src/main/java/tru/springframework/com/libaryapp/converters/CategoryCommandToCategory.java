@@ -19,11 +19,16 @@ public class CategoryCommandToCategory implements Converter<CategoryCommand, Cat
         if(categoryCommand== null)
         return null;
 
+
+
         Category category = new Category();
 
         category.setId(categoryCommand.getId());
         category.setDescription(categoryCommand.getDescription());
-        category.getBooks().addAll(categoryCommand.getBooks());
+        if(categoryCommand.getBooks()!=null && categoryCommand.getBooks().size()>0)
+        {
+            categoryCommand.getBooks().forEach(bookCommand -> category.getBooks().add(bookCommand));
+        }
 
         return category;
     }

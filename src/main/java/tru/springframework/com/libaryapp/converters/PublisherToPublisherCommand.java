@@ -11,6 +11,7 @@ import tru.springframework.com.libaryapp.model.Publisher;
 public class PublisherToPublisherCommand implements Converter<Publisher, PublisherCommand> {
 
 
+
     @Nullable
     @Synchronized
     @Override
@@ -21,9 +22,9 @@ public class PublisherToPublisherCommand implements Converter<Publisher, Publish
 
         PublisherCommand publisherCommand = new PublisherCommand();
 
-        publisherCommand.setBooks(publisher.getBooks());
         publisherCommand.setId(publisher.getId());
         publisherCommand.setPublisherName(publisher.getPublisherName());
+        publisherCommand.getBooks().addAll(publisher.getBooks());
 
         return publisherCommand;
     }

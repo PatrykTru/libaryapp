@@ -12,6 +12,8 @@ import tru.springframework.com.libaryapp.model.Category;
 public class CategoryToCategoryCommand  implements Converter<Category, CategoryCommand> {
 
 
+
+
     @Nullable
     @Synchronized
     @Override
@@ -23,7 +25,10 @@ public class CategoryToCategoryCommand  implements Converter<Category, CategoryC
 
         categoryCommand.setDescription(category.getDescription());
         categoryCommand.setId(category.getId());
-        categoryCommand.getBooks().addAll(category.getBooks());
+        if(category.getBooks()!=null && category.getBooks().size()>0)
+        {
+            category.getBooks().forEach(book-> categoryCommand.getBooks().add(book));
+        }
 
 
         return categoryCommand;
