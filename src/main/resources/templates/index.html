@@ -59,9 +59,9 @@
                             <div class="col-sm-4 text-center" th:each="book : ${books}">
                                 <a href="#" th:href="@{'/book/' + ${book.id} + '/show'}"> <img src="../static/images/piekaraImage.jpg"
                                                                                                width="120px" height="180px" th:src="@{'/images/' + ${book.imageName}}"></a>
-                                <p><a href="#"  th:text="${book.bookName}">Name</a></p>
-                               <p> <a href="#"  th:text="${book.author.firstName} + ' ' + ${book.author.lastName}">Dudu Kobut</a></p>
-                                <p><a href="#"  th:text="${book.price.value} + ' ' + ${book.price.currency.name()}">0 zl</a></p>
+                                <p><a href="#" th:href="@{'/book/' + ${book.id} + '/show'}" th:text="${book.bookName}">Name</a></p>
+                               <p> <a href="#" th:href="@{'/author/' + ${book.author.id} + '/show'}"  th:text="${book.author.firstName} + ' ' + ${book.author.lastName}">Dudu Kobut</a></p>
+                                <p  th:text="${book.price.value} + ' ' + ${book.price.currency.name()}">0 zl</p>
                             </div>
 
                         </div>

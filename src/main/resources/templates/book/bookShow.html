@@ -56,7 +56,7 @@
                                     <p>Author: </p>
                                 </div>
                                 <div class="col-md-9">
-                                    <p th:text="${book.author.firstName}+ ' ' + ${book.author.lastName}">Jacek Piekara</p>
+                                   <a href="#" th:href="@{'/author/' + ${book.author.id} + '/show'}" > <p th:text="${book.author.firstName}+ ' ' + ${book.author.lastName}">Jacek Piekara</p> </a>
                                 </div>
                             </div>
                             <div class="row">
