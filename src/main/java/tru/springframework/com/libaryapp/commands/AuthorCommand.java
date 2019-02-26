@@ -6,8 +6,10 @@ import lombok.Setter;
 import tru.springframework.com.libaryapp.model.Book;
 
 import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -21,7 +23,13 @@ public class AuthorCommand {
     private String firstName;
     @Size(min = 3,max = 30)
     private String lastName;
-    private Set<Book> books = new HashSet<>();
+    private List<Book> books = new ArrayList<>();
+
+    public List<Book> getBooks() {
+        List<Book> sortedBooks = books.stream().sorted(Comparator.comparing(Book::getId)).collect(Collectors.toList());
+
+        return sortedBooks;
+    }
 
 
 }

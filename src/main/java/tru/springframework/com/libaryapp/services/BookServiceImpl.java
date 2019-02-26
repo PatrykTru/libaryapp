@@ -1,6 +1,5 @@
 package tru.springframework.com.libaryapp.services;
 
-import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,9 +9,11 @@ import tru.springframework.com.libaryapp.converters.BookToBookCommand;
 import tru.springframework.com.libaryapp.model.Book;
 import tru.springframework.com.libaryapp.repositories.BookRepository;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -31,11 +32,12 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public Set<Book> getBooks() {
+    public List<Book> getBooks() {
 
-        Set<Book> bookSet = new HashSet<>();
+        List<Book> bookSet = new ArrayList<>();
         bookRepository.findAll().iterator().forEachRemaining(bookSet::add);
-        return bookSet;
+        List<Book> sortedBooks = bookSet.stream().sorted(Comparator.comparing(Book::getId)).collect(Collectors.toList());
+        return sortedBooks;
     }
 
 

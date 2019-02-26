@@ -11,8 +11,8 @@ import tru.springframework.com.libaryapp.model.Book;
 import tru.springframework.com.libaryapp.repositories.BookRepository;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -47,9 +47,9 @@ public class BookServiceImplTest {
 
         when(bookRepository.findAll()).thenReturn(books);
 
-        Set<Book> testBookSet = bookService.getBooks();
+        List<Book> testBookList = bookService.getBooks();
 
-        assertEquals(1, testBookSet.size());
+        assertEquals(1, testBookList.size());
         verify(bookRepository ,times(1)).findAll();
         verify(bookRepository,never()).findById(anyLong());
 

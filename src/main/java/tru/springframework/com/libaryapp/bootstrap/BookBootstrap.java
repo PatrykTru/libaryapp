@@ -8,11 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import tru.springframework.com.libaryapp.model.*;
 import tru.springframework.com.libaryapp.repositories.*;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @Component
@@ -216,12 +214,64 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         categoryHistory.getBooks().add(book1);
 
 
+        Price price6 = Price.builder().currency(Currency.ZŁ).value(33.90).build();
+        priceRepository.save(price6);
+
+        Book book6 = Book.builder().author(author1).coverType(CoverType.SOFT).imageName("piekaraTom2Image.jpg").description(
+
+                        "Zbiór sześciu opowiadań, w których ważną rolę pełnią niezwykłe kobiety: Katarzyna, Katrina, Roksana, Enya, Matylda, Valeria Flavia. To one będą miały wpływ na dzieje Świętego Oficjum. Drugi tom Płomienia i krzyża jest w odróżnieniu od tomu pierwszego książką dużo silniej umocowaną w świecie magicznym i nieco mniej zajmuje się rzeczywistą obyczajowością historyczną, bo jego bohaterowie głównie zajmują się problemami własnej, sekretnej społeczności. Nie znaczy to oczywiście, że pisząc tę powieść, nie przykładałem wagi do zachowania realiów znanych z historii naszego świata. Taki to już jest urok tworzenia historii alternatywnych, że muszą one zakładać, iż nie wszystko potoczyło się całkowicie inaczej. To, że mój świat nawiedzają demony, że funkcjonuje w nim magia, że są ludzie potrafiący penetrować mistyczne przestrzenie, nie oznacza przecież, że nie będzie w tym świecie sztuki i rzemiosła, że nie będzie w nim pieniądza (a co za tym idzie: ruchu kapitału), że ludzie nie będą się stroić, ozdabiać domów, jeść smacznych dań i pić wykwintnych lub mniej wykwintnych trunków, nie będą gromadzić bogactw. Nie oznacza też, że nie będą ze sobą walczyć za pomocą różnych rodzajów oręża."
+        )
+                .eanNumber(new BigInteger("9788327263353"))
+                .price(price5)
+                .publishDate(LocalDate.of(2016,03,11))
+                .publisher(publisher1)
+                .numberOfPages(444)
+                .bookName("Płomień i krzyż. Tom 2")
+                .build();
+
+
+        book6.setId(6l);
+        author1.getBooks().add(book6);
+        book6.getCategories().add(categoryFantasy);
+        categoryFantasy.getBooks().add(book6);
+
+
+        Price price7 = Price.builder().currency(Currency.ZŁ).value(29.90).build();
+        priceRepository.save(price7);
+
+        Book book7 = Book.builder().author(author1).coverType(CoverType.SOFT).imageName("piekaraTom1Image.jpg").description(
+
+                "\n" +
+                        "\n" +
+                        "Oto on - Inkwizytor i Sługa Boży. Człowiek głębokiej wiary.\n" +
+                        "\n" +
+                        "Minęło tysiąc pięćset lat, od kiedy Jezus zszedł z krzyża, utopił we krwi Jerozolimę i zdobył Rzym. Światem żądzą inkwizytorzy.\n" +
+                        "\n" +
+                        "Płomień i Krzyż to symbole Świętego Officjum, instytucji niosącej w świat ogień jedynej i prawdziwej wiary. Ale to również dwa przeciwstawne sobie znaki - jeden symbolizuje perskich magów ognia, drugi walczących z nimi prawowiernych chrześcijan. Ich walka trwa.\n" +
+                        "\n" +
+                        "Losy inkwizytora Mordimera Madderdina widziane oczami między innymi Pięknej Katarzyny - matki Madderdina oraz Arnolda Lowefella - jego mentora i nauczyciela, członka Wewnętrznego Kręgu Inkwizytorium. A wszystko to w krwawej scenerii chłopskiego buntu pustoszącego Cesarstwo, w bogatym domu pięknej kurtyzany parającej się mroczną sztuką, w mistycznej siedzibie perskiego czarnoksiężnika, w Akademii Inkwizytorium oraz w siedzibie Świętego Officjum - tajemniczym klasztorze Amszilas.\n"
+        )
+                .eanNumber(new BigInteger("9788379643738"))
+                .price(price7)
+                .publishDate(LocalDate.of(2014,02,19))
+                .publisher(publisher1)
+                .numberOfPages(352)
+                .bookName("Płomień i krzyż. Tom 1 ")
+                .build();
+
+
+        book7.setId(7l);
+        author1.getBooks().add(book7);
+        book7.getCategories().add(categoryFantasy);
+        categoryFantasy.getBooks().add(book7);
 
         books.add(book1);
         books.add(book2);
         books.add(book3);
         books.add(book4);
         books.add(book5);
+        books.add(book6);
+        books.add(book7);
 
         return books;
     }

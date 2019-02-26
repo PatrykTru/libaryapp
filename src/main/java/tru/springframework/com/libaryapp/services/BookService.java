@@ -3,11 +3,11 @@ package tru.springframework.com.libaryapp.services;
 import tru.springframework.com.libaryapp.commands.BookCommand;
 import tru.springframework.com.libaryapp.model.Book;
 
-import java.util.Set;
+import java.util.List;
 
 public interface BookService {
 
-    Set<Book> getBooks();
+    List<Book> getBooks();
 
     Book findById(Long l);
 
