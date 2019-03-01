@@ -44,4 +44,12 @@ public class BookControllerTest {
                 .andExpect(status().isOk());
 
     }
+
+    @Test
+    public void redirectIndexPage() throws Exception
+    {
+        mockMvc.perform(get("/book/redirect"))
+                .andExpect(view().name("redirect:/index"))
+                .andExpect(status().is3xxRedirection());
+    }
 }

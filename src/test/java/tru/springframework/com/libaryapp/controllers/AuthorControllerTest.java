@@ -8,6 +8,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import tru.springframework.com.libaryapp.model.Author;
 import tru.springframework.com.libaryapp.services.AuthorService;
+import tru.springframework.com.libaryapp.services.BookService;
 
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
@@ -23,11 +24,15 @@ public class AuthorControllerTest {
     @Mock
     private AuthorService authorService;
 
+    @Mock
+    private BookService bookService;
+
+
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        authorController = new AuthorController(authorService);
+        authorController = new AuthorController(authorService,bookService);
         mockMvc = MockMvcBuilders.standaloneSetup(authorController).build();
     }
 
@@ -42,5 +47,14 @@ public class AuthorControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("author"))
                 .andExpect(view().name("author/authorShow"));
+    }
+
+
+    @Test
+    public void redirectIndexPage() throws Exception
+    {
+        mockMvc.perform(get("/author/redirect"))
+                .andExpect(view().name("redirect:/index"))
+                .andExpect(status().is3xxRedirection());
     }
 }

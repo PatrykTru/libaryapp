@@ -19,13 +19,7 @@
     <link rel="stylesheet" href="../../static/css/custom.css" th:href="@{'/css/custom.css/'}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#btn2").click(function(){
-                $("ol").appendTo("<li>Appended item</li>");
-            });
-        });
-    </script>
+
 
 </head>
 <body>
@@ -39,6 +33,10 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <h1 class="panel-title" th:text="${book.bookName}">Book Name here!</h1>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#"
+                                   th:href="@{'/book/redirect'}" role="button">Back</a>
                             </div>
 
                         </div>

@@ -16,10 +16,17 @@ public class BookController {
     }
 
     @GetMapping("/book/{bookId}/show")
-    public String getBookShow(@PathVariable Long bookId , Model model)
-    {
+    public String getBookShow(@PathVariable Long bookId, Model model) {
         model.addAttribute("book", bookService.findById(bookId));
 
         return "book/bookShow";
     }
+
+    @GetMapping("/book/redirect")
+    public String redirectIndexPage() {
+
+        return "redirect:/index";
+    }
+
+
 }

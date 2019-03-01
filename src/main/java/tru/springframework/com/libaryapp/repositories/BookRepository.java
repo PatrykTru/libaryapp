@@ -5,5 +5,4 @@ import tru.springframework.com.libaryapp.model.Book;
 
 
 public interface BookRepository extends CrudRepository<Book,Long> {
-
 }
