@@ -8,7 +8,6 @@ import tru.springframework.com.libaryapp.model.CoverType;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
-import java.util.HashSet;
 
 import static org.junit.Assert.*;
 
@@ -66,15 +65,15 @@ public class BookCommandToBookTest {
 
         PriceCommand priceCommand = new PriceCommand();
         priceCommand.setId(PRICE_ID);
-        bookCommand.setPriceCommand(priceCommand);
+        bookCommand.setPrice(priceCommand);
 
         PublisherCommand publisherCommand = new PublisherCommand();
         publisherCommand.setId(PUBLISHER_ID);
-        bookCommand.setPublisherCommand(publisherCommand);
+        bookCommand.setPublisher(publisherCommand);
 
         AuthorCommand authorCommand = new AuthorCommand();
         authorCommand.setId(AUTHOR_ID);
-        bookCommand.setAuthorCommand(authorCommand);
+        bookCommand.setAuthor(authorCommand);
 
         Book book = bookCommandToBook.convert(bookCommand);
 

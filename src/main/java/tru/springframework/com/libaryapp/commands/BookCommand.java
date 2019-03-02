@@ -3,9 +3,13 @@ package tru.springframework.com.libaryapp.commands;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tru.springframework.com.libaryapp.model.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import tru.springframework.com.libaryapp.model.CoverType;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -19,8 +23,8 @@ public class BookCommand {
     private Long id;
     @Size(min=3 , max= 30)
     private String bookName;
-    private AuthorCommand authorCommand;
-    private PublisherCommand publisherCommand;
+    private AuthorCommand author;
+    private PublisherCommand publisher;
 
     @Size(min=3 , max= 255)
     private String description;
@@ -29,11 +33,12 @@ public class BookCommand {
     @Max(4500)
     private int numberOfPages;
 
+    @DateTimeFormat
     private LocalDate publishDate;
     private CoverType coverType;
     private BigInteger eanNumber;
 
-    private PriceCommand priceCommand;
+    private PriceCommand price;
     @NotEmpty
     private Byte[] image;
     private Set<CategoryCommand> categories =  new HashSet<>();

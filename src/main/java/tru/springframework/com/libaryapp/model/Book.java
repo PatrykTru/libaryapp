@@ -1,10 +1,12 @@
 package tru.springframework.com.libaryapp.model;
 
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -47,7 +49,7 @@ public class Book {
     @Enumerated(value = EnumType.STRING)
     private CoverType coverType;
     private BigInteger eanNumber;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Price price;
     @Lob
     private Byte[] image;

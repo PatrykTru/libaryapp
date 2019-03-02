@@ -59,8 +59,8 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         Category categoryFantasy = Category.builder().description("Fantasy").build();
         Category categoryRomance = Category.builder().description("Romance").build();
         Category categoryBiography = Category.builder().description("Biography").build();
-        Category categoryHistory = Category.builder().description("Biography").build();
-        Category categoryCriminal = Category.builder().description("Biography").build();
+        Category categoryHistory = Category.builder().description("History").build();
+        Category categoryCriminal = Category.builder().description("Criminal").build();
 
         categoryFantasy.setId(1l);
         categoryRomance.setId(2l);

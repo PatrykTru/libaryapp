@@ -5,7 +5,11 @@ import org.springframework.stereotype.Service;
 import tru.springframework.com.libaryapp.model.Author;
 import tru.springframework.com.libaryapp.repositories.AuthorRepository;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -29,5 +33,14 @@ public class AuthorServiceImpl implements AuthorService{
 
 
         return authorOptional.get();
+    }
+
+    @Override
+    public List<Author> getAuthors() {
+        List<Author> authors = new ArrayList<>();
+        authorRepository.findAll().iterator().forEachRemaining(authors::add);
+        List<Author> sortedAuthors = authors.stream().sorted(Comparator.comparing(Author::getId)).collect(Collectors.toList());
+
+        return sortedAuthors;
     }
 }

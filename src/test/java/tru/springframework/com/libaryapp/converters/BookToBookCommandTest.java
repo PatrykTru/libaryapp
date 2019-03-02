@@ -2,7 +2,7 @@ package tru.springframework.com.libaryapp.converters;
 
 import org.junit.Before;
 import org.junit.Test;
-import tru.springframework.com.libaryapp.commands.*;
+import tru.springframework.com.libaryapp.commands.BookCommand;
 import tru.springframework.com.libaryapp.model.*;
 
 import java.math.BigInteger;
@@ -85,9 +85,9 @@ public class BookToBookCommandTest {
         assertEquals(DESCRIPTION, bookCommand.getDescription());
         assertEquals(COVER_TYPE, bookCommand.getCoverType());
         assertEquals(2, bookCommand.getCategories().size());
-        assertEquals(PUBLISHER_ID, bookCommand.getPublisherCommand().getId());
-        assertEquals(AUTHOR_ID, bookCommand.getAuthorCommand().getId());
-        assertEquals(PRICE_ID, bookCommand.getPriceCommand().getId());
+        assertEquals(PUBLISHER_ID, bookCommand.getPublisher().getId());
+        assertEquals(AUTHOR_ID, bookCommand.getAuthor().getId());
+        assertEquals(PRICE_ID, bookCommand.getPrice().getId());
 
     }
 

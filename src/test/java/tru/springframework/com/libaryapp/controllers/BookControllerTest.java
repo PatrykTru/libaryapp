@@ -7,7 +7,10 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import tru.springframework.com.libaryapp.model.Book;
+import tru.springframework.com.libaryapp.services.AuthorService;
 import tru.springframework.com.libaryapp.services.BookService;
+import tru.springframework.com.libaryapp.services.CategoryService;
+import tru.springframework.com.libaryapp.services.PublisherService;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -19,6 +22,12 @@ public class BookControllerTest {
 
     @Mock
     private BookService bookService;
+    @Mock
+    private AuthorService authorService;
+    @Mock
+    private PublisherService publisherService;
+    @Mock
+    private CategoryService categoryService;
 
     private BookController bookController;
 
@@ -27,7 +36,7 @@ public class BookControllerTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        bookController = new BookController(bookService);
+        bookController = new BookController(bookService,authorService,publisherService,categoryService);
         mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
     }
 

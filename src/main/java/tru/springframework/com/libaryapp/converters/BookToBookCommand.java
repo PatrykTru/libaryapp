@@ -5,7 +5,6 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import tru.springframework.com.libaryapp.commands.BookCommand;
-import tru.springframework.com.libaryapp.model.Author;
 import tru.springframework.com.libaryapp.model.Book;
 import tru.springframework.com.libaryapp.model.Category;
 
@@ -34,9 +33,9 @@ public class BookToBookCommand  implements Converter <Book, BookCommand>{
 
         BookCommand bookCommand = new BookCommand();
 
-        bookCommand.setAuthorCommand(authorToAuthorCommand.convert(book.getAuthor()));
-        bookCommand.setPriceCommand(priceToPriceCommand.convert(book.getPrice()));
-        bookCommand.setPublisherCommand(publisherToPublisherCommand.convert(book.getPublisher()));
+        bookCommand.setAuthor(authorToAuthorCommand.convert(book.getAuthor()));
+        bookCommand.setPrice(priceToPriceCommand.convert(book.getPrice()));
+        bookCommand.setPublisher(publisherToPublisherCommand.convert(book.getPublisher()));
         bookCommand.setBookName(book.getBookName());
         bookCommand.setCoverType(book.getCoverType());
         bookCommand.setDescription(book.getDescription());

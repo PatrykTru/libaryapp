@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import tru.springframework.com.libaryapp.commands.BookCommand;
 import tru.springframework.com.libaryapp.commands.CategoryCommand;
 import tru.springframework.com.libaryapp.model.Book;
-import tru.springframework.com.libaryapp.model.Category;
 
 @Component
 public class BookCommandToBook implements Converter<BookCommand, Book> {
@@ -37,9 +36,9 @@ public class BookCommandToBook implements Converter<BookCommand, Book> {
 
 
 
-        book.setAuthor(authorCommandToAuthor.convert(bookCommand.getAuthorCommand()));
-        book.setPrice(priceCommandToPrice.convert(bookCommand.getPriceCommand()));
-        book.setPublisher(publisherCommandToPublisher.convert(bookCommand.getPublisherCommand()));
+        book.setAuthor(authorCommandToAuthor.convert(bookCommand.getAuthor()));
+        book.setPrice(priceCommandToPrice.convert(bookCommand.getPrice()));
+        book.setPublisher(publisherCommandToPublisher.convert(bookCommand.getPublisher()));
         book.setBookName(bookCommand.getBookName());
         book.setCoverType(bookCommand.getCoverType());
         book.setDescription(bookCommand.getDescription());
