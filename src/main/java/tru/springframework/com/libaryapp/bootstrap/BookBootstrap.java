@@ -17,6 +17,8 @@ import java.util.List;
 @Slf4j
 public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent> {
 
+    private final static String currency = "Zł";
+
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
     private final CategoryRepository categoryRepository;
@@ -92,7 +94,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         authorRepository.save(author4);
         authorRepository.save(author5);
 
-        Price price1 = Price.builder().currency(Currency.ZŁ).value(31.92).build();
+        Price price1 = Price.builder().currency(currency).value(31.92).build();
         priceRepository.save(price1);
 
         Book book1 = Book.builder().author(author1).coverType(CoverType.SOFT).imageName("piekaraImage.jpg").description("" +
@@ -119,7 +121,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         author1.getBooks().add(book1);
         book1.getCategories().add(categoryFantasy);
 
-        Price price2 = Price.builder().currency(Currency.ZŁ).value(40.00).build();
+        Price price2 = Price.builder().currency(currency).value(40.00).build();
         priceRepository.save(price2);
 
         Book book2 = Book.builder().author(author2).coverType(CoverType.HARD).imageName("dayImage.jpg").description("" +
@@ -143,7 +145,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         author2.getBooks().add(book2);
         book2.getCategories().add(categoryRomance);
 
-        Price price3 = Price.builder().currency(Currency.ZŁ).value(35.90).build();
+        Price price3 = Price.builder().currency(currency).value(35.90).build();
         priceRepository.save(price3);
 
         Book book3 = Book.builder().author(author3).coverType(CoverType.SOFT).imageName("carrisiImage.jpg").description("" +
@@ -168,7 +170,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         author3.getBooks().add(book3);
         book3.getCategories().add(categoryCriminal);
 
-        Price price4 = Price.builder().currency(Currency.ZŁ).value(32.30).build();
+        Price price4 = Price.builder().currency(currency).value(32.30).build();
         priceRepository.save(price4);
 
         Book book4 = Book.builder().author(author4).coverType(CoverType.HARD).imageName("obamaImage.jpg").description("" +
@@ -190,7 +192,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         author4.getBooks().add(book4);
         book4.getCategories().add(categoryBiography);
 
-        Price price5 = Price.builder().currency(Currency.ZŁ).value(29.90).build();
+        Price price5 = Price.builder().currency(currency).value(29.90).build();
         priceRepository.save(price5);
 
         Book book5 = Book.builder().author(author5).coverType(CoverType.SOFT).imageName("staszakImage.jpg").description("" +
@@ -214,7 +216,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         categoryHistory.getBooks().add(book1);
 
 
-        Price price6 = Price.builder().currency(Currency.ZŁ).value(33.90).build();
+        Price price6 = Price.builder().currency(currency).value(33.90).build();
         priceRepository.save(price6);
 
         Book book6 = Book.builder().author(author1).coverType(CoverType.SOFT).imageName("piekaraTom2Image.jpg").description(
@@ -236,7 +238,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         categoryFantasy.getBooks().add(book6);
 
 
-        Price price7 = Price.builder().currency(Currency.ZŁ).value(29.90).build();
+        Price price7 = Price.builder().currency(currency).value(29.90).build();
         priceRepository.save(price7);
 
         Book book7 = Book.builder().author(author1).coverType(CoverType.SOFT).imageName("piekaraTom1Image.jpg").description(

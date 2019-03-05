@@ -62,8 +62,11 @@ public class BookServiceImpl implements BookService {
     @Transactional
     @Override
     public BookCommand saveBookCommand(BookCommand command) {
+
+
         Book book = bookCommandToBook.convert(command);
         Book savedBook = bookRepository.save(book);
+        log.error("id  " + savedBook.getId() );
         log.debug("Saved Book id:" +savedBook.getId());
         return bookToBookCommand.convert(savedBook);
     }

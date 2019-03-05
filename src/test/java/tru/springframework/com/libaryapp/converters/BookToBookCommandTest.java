@@ -14,7 +14,7 @@ public class BookToBookCommandTest {
     private static final Long ID_VALUE = 1l;
     private static final String BOOK_NAME = "book name";
     private static final String DESCRIPTION = "This book is about nothing";
-    private static final int NUMBER_OF_PAGES = 400;
+    private static final Integer NUMBER_OF_PAGES = 400;
     private static final LocalDate PUBLISH_DATE = LocalDate.of(1994, 12, 12);
     private static final CoverType COVER_TYPE = CoverType.SOFT;
     private static final BigInteger EAN_NUMBER = new BigInteger("123123123123");

@@ -7,6 +7,7 @@ import tru.springframework.com.libaryapp.repositories.CategoryRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,5 +26,12 @@ public class CategoryServiceImpl implements CategoryService{
         List<Category> sortedCategories = categories.stream().sorted(Comparator.comparing(Category::getId)).collect(Collectors.toList());
 
         return sortedCategories;
+    }
+
+    @Override
+    public Category findById(Long id) {
+        Optional<Category> categoryOptional = categoryRepository.findById(id);
+
+        return categoryOptional.get();
     }
 }

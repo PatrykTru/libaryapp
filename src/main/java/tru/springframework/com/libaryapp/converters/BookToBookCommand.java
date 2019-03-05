@@ -51,7 +51,7 @@ public class BookToBookCommand  implements Converter <Book, BookCommand>{
 
         if (book.getCategories() != null && book.getCategories().size() > 0){
             book.getCategories()
-                    .forEach((Category category) -> bookCommand.getCategories().add(categoryToCategoryCommand.convert(category)));
+                    .forEach((Category category) -> bookCommand.getCategories().add(category));
         }
 
         return bookCommand;

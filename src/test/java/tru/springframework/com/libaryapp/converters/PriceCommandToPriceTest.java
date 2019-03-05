@@ -3,14 +3,13 @@ package tru.springframework.com.libaryapp.converters;
 import org.junit.Before;
 import org.junit.Test;
 import tru.springframework.com.libaryapp.commands.PriceCommand;
-import tru.springframework.com.libaryapp.model.Currency;
 import tru.springframework.com.libaryapp.model.Price;
 
 import static org.junit.Assert.*;
 
 public class PriceCommandToPriceTest {
     private final static Long ID_VALUE = 1L;
-    private final static Currency CURRENCY = Currency.ZŁ;
+    private final static String STRING = "ZŁ";
     private final static Double VALUE = 25.50;
 
     private PriceCommandToPrice priceCommandToPrice;
@@ -35,13 +34,13 @@ public class PriceCommandToPriceTest {
         PriceCommand priceCommand  = new PriceCommand();
         priceCommand.setId(ID_VALUE);
         priceCommand.setValue(VALUE);
-        priceCommand.setCurrency(CURRENCY);
+        priceCommand.setCurrency(STRING);
 
         Price price = priceCommandToPrice.convert(priceCommand);
 
         assertEquals(ID_VALUE, price.getId());
         assertEquals(VALUE, price.getValue());
-        assertEquals(CURRENCY,price.getCurrency());
+        assertEquals(STRING,price.getCurrency());
 
     }
 }

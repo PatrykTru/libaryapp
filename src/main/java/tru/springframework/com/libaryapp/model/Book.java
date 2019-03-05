@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,13 +39,13 @@ public class Book {
 
     private String bookName;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.DETACH)
     private Author author;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.DETACH)
     private Publisher publisher;
     @Lob
     private String description;
-    private int numberOfPages;
+    private Integer numberOfPages;
     private LocalDate publishDate;
     @Enumerated(value = EnumType.STRING)
     private CoverType coverType;
@@ -54,6 +55,8 @@ public class Book {
     @Lob
     private Byte[] image;
     private String imageName;
+
+    private ArrayList categoryList = new ArrayList();
 
     @ManyToMany
     @JoinTable(name = "book_category" ,joinColumns = @JoinColumn(name = "book_id"),

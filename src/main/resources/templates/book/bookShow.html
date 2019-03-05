@@ -38,14 +38,22 @@
                                 <a class="btn btn-default" href="#"
                                    th:href="@{'/book/redirect'}" role="button">Back</a>
                             </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#"
+                                   th:href="@{'/book/' + ${book.id}  + '/image'} " role="button">Change Image</a>
+                            </div>
 
                         </div>
                     </div>
                     <div class="panel-body">
                         <div class="col-md-5">
                             <div class="col-md-6 ">
-                                <img th:src="@{'/images/' + ${book.imageName}}"  src="../../static/images/piekaraImage.jpg"
-                                     width="260" height="380">
+                                <img th:if="${book.getImage()==null}" th:src="@{'/images/' + ${book.imageName}}"  src="../../static/images/piekaraImage.jpg"
+                                     width="260" height="380"
+                                     th:unless="${book.getImage()!=null}">
+                                <img th:if="${book.getImage()!=null}" th:src="@{'/book/' + ${book.id} + '/bookimage'}"  src="../../static/images/piekaraImage.jpg"
+                                     width="260" height="380"
+                                     th:unless="${book.getImage()==null}">
                             </div>
                         </div>
                         <div class="col-md-7" style="margin-top: 70px">

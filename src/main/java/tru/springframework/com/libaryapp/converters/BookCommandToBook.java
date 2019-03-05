@@ -5,8 +5,8 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import tru.springframework.com.libaryapp.commands.BookCommand;
-import tru.springframework.com.libaryapp.commands.CategoryCommand;
 import tru.springframework.com.libaryapp.model.Book;
+import tru.springframework.com.libaryapp.model.Category;
 
 @Component
 public class BookCommandToBook implements Converter<BookCommand, Book> {
@@ -54,7 +54,7 @@ public class BookCommandToBook implements Converter<BookCommand, Book> {
 
         if (bookCommand.getCategories() != null && bookCommand.getCategories().size() > 0){
             bookCommand.getCategories()
-                    .forEach((CategoryCommand categoryCommand) -> book.getCategories().add(categoryCommandToCategory.convert(categoryCommand)));
+                    .forEach((Category category) -> book.getCategories().add(category));
         }
 
         return book;

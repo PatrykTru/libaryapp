@@ -2,8 +2,12 @@ package tru.springframework.com.libaryapp.converters;
 
 import org.junit.Before;
 import org.junit.Test;
-import tru.springframework.com.libaryapp.commands.*;
+import tru.springframework.com.libaryapp.commands.AuthorCommand;
+import tru.springframework.com.libaryapp.commands.BookCommand;
+import tru.springframework.com.libaryapp.commands.PriceCommand;
+import tru.springframework.com.libaryapp.commands.PublisherCommand;
 import tru.springframework.com.libaryapp.model.Book;
+import tru.springframework.com.libaryapp.model.Category;
 import tru.springframework.com.libaryapp.model.CoverType;
 
 import java.math.BigInteger;
@@ -15,7 +19,7 @@ public class BookCommandToBookTest {
     private static final Long ID_VALUE = 1l;
     private static final String BOOK_NAME = "book name";
     private static final String DESCRIPTION = "This book is about nothing";
-    private static final int NUMBER_OF_PAGES = 400;
+    private static final Integer NUMBER_OF_PAGES = 400;
     private static final LocalDate PUBLISH_DATE = LocalDate.of(1994,12,12);
     private static final  CoverType COVER_TYPE = CoverType.SOFT;
     private static final  BigInteger EAN_NUMBER = new BigInteger("123123123123");
@@ -56,9 +60,9 @@ public class BookCommandToBookTest {
         bookCommand.setBookName(BOOK_NAME);
 
 
-        CategoryCommand categoryCommand1 = new CategoryCommand();
+        Category categoryCommand1 = new Category();
         categoryCommand1.setId(CAT_ID1);
-        CategoryCommand categoryCommand2 = new CategoryCommand();
+        Category categoryCommand2 = new Category();
         categoryCommand2.setId(CAT_ID2);
         bookCommand.getCategories().add(categoryCommand1);
         bookCommand.getCategories().add(categoryCommand2);

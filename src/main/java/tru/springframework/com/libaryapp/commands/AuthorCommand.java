@@ -31,5 +31,8 @@ public class AuthorCommand {
         return sortedBooks;
     }
 
-
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
+    }
 }

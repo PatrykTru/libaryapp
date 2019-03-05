@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class Price {
 
     @Builder
-    public Price(Double value, Currency currency) {
+    public Price(Double value, String currency) {
         this.value = value;
         this.currency = currency;
     }
@@ -28,11 +28,11 @@ public class Price {
     private Long id;
 
     private Double value;
-    private Currency currency;
+    private String currency;
 
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return  value + " " + currency ;
     }
 }

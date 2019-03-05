@@ -27,17 +27,18 @@
 <!--/*@thymesVar id="author" type="tru.springframework.com.libaryapp.model.Author"*/-->
 <!--/*@thymesVar id="author" type="tru.springframework.com.libaryapp.model.Publisher"*/-->
 <!--/*@thymesVar id="author" type="tru.springframework.com.libaryapp.model.Price"*/-->
-<!--/*@thymesVar id="author" type="tru.springframework.com.libaryapp.model.Currency"*/-->
+<!--/*@thymesVar id="author" type="tru.springframework.com.libaryapp.model.String"*/-->
 <!--/*@thymesVar id="books" type="java.util.List"*/-->
 <!--/*@thymesVar id="authors" type="java.util.List"*/-->
 <!--/*@thymesVar id="publishers" type="java.util.List"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <form  th:object="${book}" th:action="@{/book/}"  method="post">
+            <form  th:object="${book}" th:action="@{/book/}"  method="post" enctype="multipart/form-data">
                 <div th:if="${#fields.hasErrors('*') }" class="alert alert-danger">
                     <p>Please Correct Errors Below</p>
                 </div>
+                <input type="hidden" th:field="*{id}"/>
                 <div class="panel-group">
                     <div class="panel panel-primary">
                         <div class=" panel-heading">
@@ -50,26 +51,30 @@
 
                                         <label >Book Name:</label>
                                         <input type="text" class="form-control" th:field="*{bookName}" th:errorclass="has-error">
-                                        <span class="help-block" th:if="${#fields.hasErrors('description')}">
+                                        <span class="help-block" th:if="${#fields.hasErrors('bookName')}">
                                                 <ul>
-                                                    <li th:each="err: ${#fields.errors('description')}" th:text="${err}"/>
+                                                    <li th:each="err: ${#fields.errors('bookName')}" th:text="${err}"/>
                                                 </ul>
                                         </span>
 
                                 </div>
                                 <div class="form-group col-md-4" >
                                     <label>Author</label>
-                                    <select class="form-control" th:field="*{author}">
+
+                                    <select class="form-control" th:field="*{author.id} ">
                                         <option th:each="author : ${authors}"
-                                                th:value="${author.firstName} + ' ' + ${author.lastName}"
+                                                th:value="${author.id}"
                                                 th:text="${author.firstName} + ' ' + ${author.lastName}">author</option>
+
+                                    </select>
+
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Publisher</label>
-                                    <select class="form-control" th:field="*{publisher}">
+                                    <select class="form-control" th:field="*{publisher.id}">
                                         <option th:each="publisher : ${publishers}"
-                                                th:value="${publisher.publisherName} "
+                                                th:value="${publisher.id} "
                                                 th:text="${publisher.publisherName} ">author</option>
                                     </select>
                                 </div>
@@ -101,7 +106,7 @@
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>Cover Type:</label>
-                                    <select class="form-control" th:field="*{CoverType}">
+                                    <select class="form-control" th:field="*{coverType}">
                                         <option th:each="CoverValue :${T(tru.springframework.com.libaryapp.model.CoverType).values()}"
                                                 th:value="${CoverValue.name()}"
                                                 th:text="${CoverValue.name()}">val</option>
@@ -124,7 +129,7 @@
                                         </span>
 
                                 </div>
-                                <div class="form-group col-md-4" th:class="${#fields.hasErrors('eanNumber')} ?
+                                <div class="form-group col-md-4" th:class="${#fields.hasErrors('price.value')} ?
                                  'form-group col-md-4 has-error' : 'form-group col-md-4'"  >
 
                                     <label >Price Value</label>
@@ -139,25 +144,17 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Price Currency</label>
-                                    <select class="form-control" th:field="*{price.currency}">
-                                        <option th:each="currencyValue :${T(tru.springframework.com.libaryapp.model.Currency).values()}"
-                                                th:value="${currencyValue.name()}"
-                                                th:text="${currencyValue.name()}">val</option>
-                                        <option th:remove="all">ZŁ</option>
-                                        <option th:remove="all">DOL</option>
+                                    <select class="form-control" th:field="*{price.currency}" >
+                                        <!--<option th:each="currencyValue :${T(tru.springframework.com.libaryapp.model.Stringvalues()}"-->
+                                                <!--th:value="${currencyValue.name()}"-->
+                                                <!--th:text="${currencyValue.name()}">val</option>-->
+                                        <option th:value="ZŁ" >ZŁ</option>
+                                        <option th:value="DOL">DOL</option>
 
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <form action="http://localhost" method="post" enctype="multipart/form-data"
-                                          th:action="@{'/book/' + ${book.getId()} + '/new'}">
-                                        <label class="control-label">Select File</label>
-                                        <input id="imagefile" name="imagefile" type="file" class="file">
-                                        <button class="btn btn-primary" type="submit">Submit</button>
-                                    </form>
-                                </div>
                                 <div class="col-md-6 form-group">
                                     <label>Categories:</label>
                                     <div class="radio" th:remove="all">
@@ -172,10 +169,10 @@
                                             Cat 2
                                         </label>
                                     </div>
-                                    <div th:each="category : ${categories}" class="radio" >
-                                        <label  >
-                                            <input type="checkbox" value="" />
-                                            <b th:text="${category.description}">Cat 2</b>
+                                    <div >
+                                        <label th:each="category : ${categories}" class="radio" >
+                                            <input th:field="*{categoryList}" th:value="${category.id}" type="checkbox" value=""  />
+                                            <b  th:text="${category.description}">Cat 2</b>
                                         </label>
                                     </div>
                                 </div>

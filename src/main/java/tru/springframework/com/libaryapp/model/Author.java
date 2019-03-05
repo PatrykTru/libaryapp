@@ -1,9 +1,6 @@
 package tru.springframework.com.libaryapp.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,6 +11,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = {"books"})
 @Entity
 public class Author {
 
@@ -37,5 +35,10 @@ public class Author {
         List<Book> sortedBooks = books.stream().sorted(Comparator.comparing(Book::getId)).collect(Collectors.toList());
 
         return sortedBooks;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }

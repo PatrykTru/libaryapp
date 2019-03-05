@@ -4,14 +4,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import tru.springframework.com.libaryapp.model.Category;
 import tru.springframework.com.libaryapp.model.CoverType;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class BookCommand {
 
     @Min(30)
     @Max(4500)
-    private int numberOfPages;
+    private Integer numberOfPages;
 
     @DateTimeFormat
     private LocalDate publishDate;
@@ -39,9 +40,11 @@ public class BookCommand {
     private BigInteger eanNumber;
 
     private PriceCommand price;
-    @NotEmpty
     private Byte[] image;
-    private Set<CategoryCommand> categories =  new HashSet<>();
+
+    private ArrayList categoryList = new ArrayList();
+
+    private Set<Category> categories =  new HashSet<>();
 
 
 

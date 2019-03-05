@@ -30,7 +30,15 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-4">
                     <h1 class="panel-title text-center">List of Books</h1>
+                        </div>
+                    <div class="col-md-1" style="float: right; margin-left: -20px">
+                        <a class="btn btn-default" href="#"
+                           th:href="@{'/book/createBook'} " role="button">New Book</a>
+                    </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive text-center">
@@ -57,11 +65,16 @@
                                 <p>Price</p>
                             </div>
                             <div class="col-sm-4 text-center" th:each="book : ${books}">
-                                <a href="#" th:href="@{'/book/' + ${book.id} + '/show'}"> <img src="../static/images/piekaraImage.jpg"
-                                                                                               width="120px" height="180px" th:src="@{'/images/' + ${book.imageName}}"></a>
+                                <a href="#" th:href="@{'/book/' + ${book.id} + '/show'}">
+                                    <img th:if="${book.getImage()==null}" th:src="@{'/images/' + ${book.imageName}}"  src="../../static/images/piekaraImage.jpg"
+                                         width="120" height="180"
+                                         th:unless="${book.getImage()!=null}">
+                                    <img th:if="${book.getImage()!=null}" th:src="@{'/book/' + ${book.id} + '/bookimage'}"  src="../../static/images/piekaraImage.jpg"
+                                         width="120" height="180"
+                                         th:unless="${book.getImage()==null}"></a>
                                 <p><a href="#" th:href="@{'/book/' + ${book.id} + '/show'}" th:text="${book.bookName}">Name</a></p>
                                <p> <a href="#" th:href="@{'/author/' + ${book.author.id} + '/show'}"  th:text="${book.author.firstName} + ' ' + ${book.author.lastName}">Dudu Kobut</a></p>
-                                <p  th:text="${book.price.value} + ' ' + ${book.price.currency.name()}">0 zl</p>
+                                <p  th:text="${book.price.value} + ' ' + ${book.price.currency}">0 zl</p>
                             </div>
 
                         </div>
