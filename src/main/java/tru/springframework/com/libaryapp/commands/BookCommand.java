@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import tru.springframework.com.libaryapp.model.Category;
 import tru.springframework.com.libaryapp.model.CoverType;
 
+import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
@@ -27,7 +28,8 @@ public class BookCommand {
     private AuthorCommand author;
     private PublisherCommand publisher;
 
-    @Size(min=3 , max= 255)
+    @Lob
+    @Size(min=3 , max= 1000)
     private String description;
 
     @Min(30)

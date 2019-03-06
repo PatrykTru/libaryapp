@@ -38,9 +38,17 @@
                                 <a class="btn btn-default" href="#"
                                    th:href="@{'/book/redirect'}" role="button">Back</a>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <a class="btn btn-default" href="#"
                                    th:href="@{'/book/' + ${book.id}  + '/image'} " role="button">Change Image</a>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#"
+                                   th:href="@{'/book/' + ${book.id} + '/update'}" role="button">Edit</a>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#"
+                                   th:href="@{'/book/' + ${book.id} + '/delete'}" role="button">Delete</a>
                             </div>
 
                         </div>
