@@ -105,7 +105,7 @@ public class BookController {
 
 
     @PostMapping("book")
-    public java.lang.String saveOrUpdate(@Valid @ModelAttribute(name = "book" ) BookCommand bookCommand,
+    public String saveOrUpdate(@Valid @ModelAttribute(name = "book" ) BookCommand bookCommand,
                                          BindingResult bindingResult,
                                          @RequestParam("imagefile") MultipartFile multipartFile,Model model ){
 
