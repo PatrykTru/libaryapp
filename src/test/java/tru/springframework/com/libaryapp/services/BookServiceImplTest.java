@@ -107,4 +107,11 @@ public class BookServiceImplTest {
 
         verify(bookRepository, times(1)).deleteById(anyLong());
     }
+
+    @Test
+    public void saveBookCommand() {
+       BookCommand bookCommand = new BookCommand();
+       bookCommand.setId(1l);
+    }
+
 }

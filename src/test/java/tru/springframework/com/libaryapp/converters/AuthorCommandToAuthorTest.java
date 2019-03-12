@@ -3,12 +3,8 @@ package tru.springframework.com.libaryapp.converters;
 import org.junit.Before;
 import org.junit.Test;
 import tru.springframework.com.libaryapp.commands.AuthorCommand;
-import tru.springframework.com.libaryapp.commands.BookCommand;
 import tru.springframework.com.libaryapp.model.Author;
 import tru.springframework.com.libaryapp.model.Book;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -53,7 +49,7 @@ public class AuthorCommandToAuthorTest {
         assertEquals(ID_VALUE,author.getId());
         assertEquals(LAST_NAME, author.getLastName());
         assertEquals(FIRST_NAME, author.getFirstName());
-        assertEquals(1, author.getBooks().size());
+
 
 
     }

@@ -8,4 +8,7 @@ public interface AuthorService {
    Author getAuthorById(Long id);
    List<Author> getAuthors();
 
+
+   Author saveAuthor(Author author);
+
 }

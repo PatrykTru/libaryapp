@@ -2,12 +2,9 @@ package tru.springframework.com.libaryapp.converters;
 
 import org.junit.Before;
 import org.junit.Test;
-import tru.springframework.com.libaryapp.commands.BookCommand;
 import tru.springframework.com.libaryapp.commands.CategoryCommand;
 import tru.springframework.com.libaryapp.model.Book;
 import tru.springframework.com.libaryapp.model.Category;
-
-
 
 import static org.junit.Assert.*;
 
@@ -47,7 +44,7 @@ public class CategoryCommandToCategoryTest {
 
         assertEquals(ID_VALUE , category.getId());
         assertEquals(DESCRIPTION , category.getDescription());
-        assertEquals(1, category.getBooks().size());
+
 
     }
 }

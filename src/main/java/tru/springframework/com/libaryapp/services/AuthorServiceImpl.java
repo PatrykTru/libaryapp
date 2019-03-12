@@ -43,4 +43,11 @@ public class AuthorServiceImpl implements AuthorService{
 
         return sortedAuthors;
     }
+
+    @Override
+    public Author saveAuthor(Author author) {
+
+
+        return authorRepository.save(author);
+    }
 }

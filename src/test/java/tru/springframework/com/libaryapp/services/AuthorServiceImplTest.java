@@ -39,4 +39,18 @@ public class AuthorServiceImplTest {
         verify(authorRepository,never()).findAllById(anyIterable());
 
     }
+
+    @Test
+    public void saveAuthor()
+    {
+        Author author = new Author();
+        author.setId(1l);
+        when(authorRepository.save(any())).thenReturn(author);
+
+        Author testAuthor = authorRepository.save(any());
+
+        assertEquals(testAuthor.getId(), author.getId());
+        verify(authorRepository,times(1)).save(any());
+        verify(authorRepository,never()).saveAll(anyIterable());
+    }
 }

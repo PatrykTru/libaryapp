@@ -45,7 +45,7 @@ public class AuthorToAuthorCommandTest {
         assertEquals(ID_VALUE,authorCommand.getId());
         assertEquals(LAST_NAME, authorCommand.getLastName());
         assertEquals(FIRST_NAME, authorCommand.getFirstName());
-        assertEquals(1, authorCommand.getBooks().size());
+
 
 
     }

@@ -10,6 +10,7 @@ import tru.springframework.com.libaryapp.model.Category;
 @Component
 public class CategoryCommandToCategory implements Converter<CategoryCommand, Category> {
 
+    private BookCommandToBook bookConverter;
 
     @Nullable
     @Synchronized
@@ -27,7 +28,7 @@ public class CategoryCommandToCategory implements Converter<CategoryCommand, Cat
         category.setDescription(categoryCommand.getDescription());
         if(categoryCommand.getBooks()!=null && categoryCommand.getBooks().size()>0)
         {
-            categoryCommand.getBooks().forEach(bookCommand -> category.getBooks().add(bookCommand));
+            categoryCommand.getBooks().forEach(book -> category.getBooks().add(book));
         }
 
         return category;
