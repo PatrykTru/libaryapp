@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import tru.springframework.com.libaryapp.converters.PublisherCommandToPublisher;
+import tru.springframework.com.libaryapp.converters.PublisherToPublisherCommand;
 import tru.springframework.com.libaryapp.model.Publisher;
 import tru.springframework.com.libaryapp.repositories.PublisherRepository;
 
@@ -22,6 +24,10 @@ public class PublisherServiceImplTest {
 
     @Mock
     private PublisherRepository publisherRepository;
+    @Mock
+    private PublisherToPublisherCommand publisherToPublisherCommand;
+    @Mock
+    private PublisherCommandToPublisher publisherCommandToPublisher;
 
     @Before
     public void setUp() throws Exception {

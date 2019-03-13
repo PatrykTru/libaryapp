@@ -97,7 +97,7 @@
                                     <p>Publisher:</p>
                                 </div>
                                 <div class="col-md-9">
-                                    <p th:text="${book.publisher.publisherName}">Publisher</p>
+                                   <a href="#" th:href="@{'/publisher/' + ${book.publisher.id} + '/show'}"><p th:text="${book.publisher.publisherName}">Publisher</p></a>
                                 </div>
                             </div>
                             <div class="row">

@@ -22,7 +22,7 @@
 
 </head>
 <body>
-<!--/*@thymesVar id="book" type="tru.springframework.libaryapp.model.Author"*/-->
+<!--/*@thymesVar id="author" type="tru.springframework.com.libaryapp.model.Publisher"*/-->
 <!--/*@thymesVar id="books" type="java.util.List"*/-->
 
 <div class="container-fluid" style="margin-top: 20px;">
@@ -32,11 +32,11 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-3">
-                        <h1 class="panel-title text-center" th:text="'List of Books from ' + ${author.firstName} + ' '+ ${author.lastName}">List of Books</h1>
+                            <h1 class="panel-title text-center" th:text="'List of Books from ' + ${publisher.publisherName}">List of Books</h1>
                         </div>
                         <div class="col-md-1">
                             <a class="btn btn-default" href="#"
-                               th:href="@{'/author/redirect'}" role="button">Back</a>
+                               th:href="@{'/publisher/redirect'}" role="button">Back</a>
                         </div>
                     </div>
                 </div>
@@ -91,29 +91,29 @@
                                         </div>
                                     </div>
 
-                            <div class="col-sm-12 text-center" th:if="${author.books} != null" th:unless="${author.books} == null" style="margin-top: 2%" th:each="book : ${author.books}">
-                                <div class="col-sm-3">
-                                <a href="#" th:href="@{'/book/' + ${book.id} + '/show'}">
-                                    <img src="../../static/images/piekaraImage.jpg"
-                                   width="180px" height="270px" th:src="@{'/images/' + ${book.imageName}}"></a></div>
-                                <div class="col-sm-9">
-                                <p th:text="${book.description}" class="text-justify " style="margin: 3%;">
-                                Arnold Lowefell i Mordimer Madderdin wspólnie ruszają do walki!
-                                Dwaj szczególni Inkwizytorzy znowu się spotykają. Tym razem, by wspólnie wypełnić zadanie w przeklętej krainie zamieszkanej przez dziki lud, który wiarę w Chrystusa połączył z pogańskimi obrządkami. Tysiące mil od granic Cesarstwa, inkwizytorzy będą musieli spełnić misję kluczową dla całego chrześcijaństwa.
-                                W całej intrydze wielką rolę odegrają także mało znani lecz potężni funkcjonariusze Wewnętrznego Kręgu Inkwizytorium. Hildegarda Reizend - podróżniczka, która przewędrowała świat od Afryki po Himalaje. Biegły w sztuce magicznej Barnaba Biber. Wszyscy będą musieli stawić czoła Herenniuszowi Furiusowi - Rzymianinowi, który na własne oczy widział Ukrzyżowanie i Zstąpienie Jezusa Chrystusa.
-                                Węzły intryg zaciskają się na szyjach wszystkich bohaterów. Kto będzie musiał umrzeć dla dobra chrześcijaństwa, a kto przeżyje, by dalej służyć Sprawie?
+                                    <div class="col-sm-12 text-center" th:if="${publisher.books} != null" th:unless="${publisher.books} == null" style="margin-top: 2%" th:each="book : ${publisher.books}">
+                                        <div class="col-sm-3">
+                                            <a href="#" th:href="@{'/book/' + ${book.id} + '/show'}">
+                                                <img src="../../static/images/piekaraImage.jpg"
+                                                     width="180px" height="270px" th:src="@{'/images/' + ${book.imageName}}"></a></div>
+                                        <div class="col-sm-9">
+                                            <p th:text="${book.description}" class="text-justify " style="margin: 3%;">
+                                                Arnold Lowefell i Mordimer Madderdin wspólnie ruszają do walki!
+                                                Dwaj szczególni Inkwizytorzy znowu się spotykają. Tym razem, by wspólnie wypełnić zadanie w przeklętej krainie zamieszkanej przez dziki lud, który wiarę w Chrystusa połączył z pogańskimi obrządkami. Tysiące mil od granic Cesarstwa, inkwizytorzy będą musieli spełnić misję kluczową dla całego chrześcijaństwa.
+                                                W całej intrydze wielką rolę odegrają także mało znani lecz potężni funkcjonariusze Wewnętrznego Kręgu Inkwizytorium. Hildegarda Reizend - podróżniczka, która przewędrowała świat od Afryki po Himalaje. Biegły w sztuce magicznej Barnaba Biber. Wszyscy będą musieli stawić czoła Herenniuszowi Furiusowi - Rzymianinowi, który na własne oczy widział Ukrzyżowanie i Zstąpienie Jezusa Chrystusa.
+                                                Węzły intryg zaciskają się na szyjach wszystkich bohaterów. Kto będzie musiał umrzeć dla dobra chrześcijaństwa, a kto przeżyje, by dalej służyć Sprawie?
 
-                                </p>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
-                                </div>
-
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 </body>
 </html>

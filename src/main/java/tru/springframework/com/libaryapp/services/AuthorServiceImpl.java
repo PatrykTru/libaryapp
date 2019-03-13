@@ -2,6 +2,9 @@ package tru.springframework.com.libaryapp.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tru.springframework.com.libaryapp.commands.AuthorCommand;
+import tru.springframework.com.libaryapp.converters.AuthorCommandToAuthor;
+import tru.springframework.com.libaryapp.converters.AuthorToAuthorCommand;
 import tru.springframework.com.libaryapp.model.Author;
 import tru.springframework.com.libaryapp.repositories.AuthorRepository;
 
@@ -16,9 +19,13 @@ import java.util.stream.Collectors;
 public class AuthorServiceImpl implements AuthorService{
 
     private final AuthorRepository authorRepository;
+    private final AuthorCommandToAuthor authorCommandToAuthor;
+    private final AuthorToAuthorCommand authorToAuthorCommand;
 
-    public AuthorServiceImpl(AuthorRepository authorRepository) {
+    public AuthorServiceImpl(AuthorRepository authorRepository, AuthorCommandToAuthor authorCommandToAuthor, AuthorToAuthorCommand authorToAuthorCommand) {
         this.authorRepository = authorRepository;
+        this.authorCommandToAuthor = authorCommandToAuthor;
+        this.authorToAuthorCommand = authorToAuthorCommand;
     }
 
     @Override
@@ -49,5 +56,15 @@ public class AuthorServiceImpl implements AuthorService{
 
 
         return authorRepository.save(author);
+    }
+
+    @Override
+    public AuthorCommand saveAuthorCommand(AuthorCommand authorCommand) {
+
+        Author authorToSave = authorCommandToAuthor.convert(authorCommand);
+        authorRepository.save(authorToSave);
+        AuthorCommand savedCommand = authorToAuthorCommand.convert(authorToSave);
+
+        return savedCommand;
     }
 }

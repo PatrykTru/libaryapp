@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import tru.springframework.com.libaryapp.converters.AuthorCommandToAuthor;
+import tru.springframework.com.libaryapp.converters.AuthorToAuthorCommand;
 import tru.springframework.com.libaryapp.model.Author;
 import tru.springframework.com.libaryapp.repositories.AuthorRepository;
 
@@ -15,13 +17,17 @@ import static org.mockito.Mockito.*;
 
 public class AuthorServiceImplTest {
 
-    AuthorServiceImpl authorService;
+    private AuthorServiceImpl authorService;
     @Mock
-    AuthorRepository authorRepository;
+    private AuthorRepository authorRepository;
+    @Mock
+    private AuthorToAuthorCommand authorToAuthorCommand;
+    @Mock
+    private AuthorCommandToAuthor authorCommandToAuthor;
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        authorService = new AuthorServiceImpl(authorRepository);
+        authorService = new AuthorServiceImpl(authorRepository,authorCommandToAuthor,authorToAuthorCommand);
     }
 
     @Test
