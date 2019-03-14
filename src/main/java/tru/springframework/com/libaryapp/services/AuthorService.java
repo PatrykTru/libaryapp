@@ -8,10 +8,8 @@ import java.util.List;
 public interface AuthorService {
    Author getAuthorById(Long id);
    List<Author> getAuthors();
-
-
    Author saveAuthor(Author author);
-
    AuthorCommand saveAuthorCommand(AuthorCommand authorCommand);
+   void deleteById(Long id);
 
 }

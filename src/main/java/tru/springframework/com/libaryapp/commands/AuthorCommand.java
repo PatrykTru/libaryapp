@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import tru.springframework.com.libaryapp.model.Book;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -18,10 +19,10 @@ public class AuthorCommand {
 
 
     private Long id;
-
-    @Size(min = 3,max = 30)
+    @Size(min=3 , max= 255)
     private String firstName;
-    @Size(min = 3,max = 30)
+    @NotBlank
+    @Size(min=3 , max= 255)
     private String lastName;
     private List<Book> books = new ArrayList<>();
 

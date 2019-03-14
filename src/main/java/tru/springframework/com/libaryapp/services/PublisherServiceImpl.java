@@ -49,7 +49,13 @@ public class PublisherServiceImpl implements PublisherService {
         Publisher publisherToSave = publisherCommandToPublisher.convert(publisherCommand);
         publisherRepository.save(publisherToSave);
         PublisherCommand savedCommand = publisherToPublisherCommand.convert(publisherToSave);
+        System.out.println(savedCommand.getBooks().size());
 
         return savedCommand;
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        publisherRepository.deleteById(id);
     }
 }

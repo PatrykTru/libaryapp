@@ -11,4 +11,5 @@ public interface PublisherService {
     Publisher getPublisherById(Long id);
 
     PublisherCommand savePublisherCommand(PublisherCommand publisherCommand);
+    void deleteById(Long id);
 }

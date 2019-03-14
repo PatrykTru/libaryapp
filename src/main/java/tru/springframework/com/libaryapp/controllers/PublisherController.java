@@ -32,7 +32,7 @@ public class PublisherController {
     }
 
     @GetMapping("publisher/createPublisher")
-    public String getAuthorCreationPage(Model model)
+    public String getPublisherCreationPage(Model model)
     {
         model.addAttribute("publisher", new PublisherCommand());
 
@@ -40,18 +40,17 @@ public class PublisherController {
         return "publisher/newOrEdit";
     }
     @PostMapping("/publisher")
-    public String createOrUpdateAuthorHandling(@Valid @ModelAttribute("publisher") PublisherCommand publisherCommand
+    public String createOrUpdatePublisherHandling(@Valid @ModelAttribute("publisher") PublisherCommand publisherCommand
             , BindingResult bindingResult) {
 
         PublisherCommand savedCommand = publisherService.savePublisherCommand(publisherCommand);
 
-        System.out.println(savedCommand.getId());
-        System.out.println(publisherCommand.getId());
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(objectError
                     -> log.debug(objectError.toString()));
 
-            return redirectIndexPage();
+            publisherService.deleteById(savedCommand.getId());
+            return "publisher/newOrEdit";
 
 
 

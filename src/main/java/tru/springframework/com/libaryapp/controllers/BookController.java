@@ -131,6 +131,7 @@ public class BookController {
                 model.addAttribute("authors", authorService.getAuthors() );
                 model.addAttribute("publishers" ,publisherService.getPublishers());
                 model.addAttribute("categories" ,categoryService.getCategories());
+                bookService.deleteById(savedCommand.getId());
                 return "book/new";
             }
             return "redirect:/book/" + savedCommand.getId() + "/show";

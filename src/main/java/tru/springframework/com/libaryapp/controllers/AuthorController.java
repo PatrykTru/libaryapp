@@ -55,9 +55,8 @@ public class AuthorController {
             bindingResult.getAllErrors().forEach(objectError
                     -> log.debug(objectError.toString()));
 
-            return redirectIndexPage();
-
-
+            authorService.deleteById(savedCommand.getId());
+            return "author/newOrEdit";
 
         }
         return "redirect:/author/" + savedCommand.getId() + "/show";
