@@ -2,7 +2,6 @@ package tru.springframework.com.libaryapp.converters;
 
 import org.junit.Before;
 import org.junit.Test;
-import tru.springframework.com.libaryapp.commands.BookCommand;
 import tru.springframework.com.libaryapp.commands.PublisherCommand;
 import tru.springframework.com.libaryapp.model.Book;
 import tru.springframework.com.libaryapp.model.Publisher;
@@ -43,7 +42,6 @@ public class PublisherCommandToPublisherTest {
         Publisher publisher  = publisherCommandToPublisher.convert(publisherCommand);
 
         assertEquals(ID_VALUE, publisher.getId());
-        assertEquals(1, publisher.getBooks().size());
         assertEquals(NAME, publisher.getPublisherName());
 
     }

@@ -44,6 +44,6 @@ public class PublisherToPublisherCommandTest {
 
         assertEquals(NAME, publisherCommand.getPublisherName());
         assertEquals(ID_VALUE, publisherCommand.getId());
-        assertEquals(1, publisherCommand.getBooks().size());
+
     }
 }

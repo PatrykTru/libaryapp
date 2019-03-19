@@ -48,8 +48,8 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
         Publisher publisher1 = Publisher.builder().publisherName("Fabryka Słów").build();
         Publisher publisher2 = Publisher.builder().publisherName("New Booksite").build();
         Publisher publisher3 = Publisher.builder().publisherName("Leader Paper").build();
-/*        Publisher publisher4 = Publisher.builder().publisherName("Classic Books").build();
-        Publisher publisher5 = Publisher.builder().publisherName("PWN").build();*/
+        Publisher publisher4 = Publisher.builder().publisherName("Classic Books").build();
+        Publisher publisher5 = Publisher.builder().publisherName("PWN").build();
 
         publisher1.setId(1l);
         publisher2.setId(2l);
