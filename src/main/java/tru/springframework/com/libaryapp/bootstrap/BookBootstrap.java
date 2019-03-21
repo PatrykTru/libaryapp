@@ -45,6 +45,7 @@ public class BookBootstrap  implements ApplicationListener<ContextRefreshedEvent
     private List<Book> getLibaryBooks(){
         List<Book> books = new ArrayList<>();
 
+
         Publisher publisher1 = Publisher.builder().publisherName("Fabryka Słów").build();
         Publisher publisher2 = Publisher.builder().publisherName("New Booksite").build();
         Publisher publisher3 = Publisher.builder().publisherName("Leader Paper").build();

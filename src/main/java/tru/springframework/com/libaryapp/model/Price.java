@@ -30,9 +30,8 @@ public class Price {
     private Double value;
     private String currency;
 
-
     @Override
-    public java.lang.String toString() {
+    public String toString() {
         return  value + " " + currency ;
     }
 }

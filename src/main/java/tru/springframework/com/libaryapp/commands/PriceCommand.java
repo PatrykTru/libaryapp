@@ -12,10 +12,13 @@ import javax.validation.constraints.Min;
 @NoArgsConstructor
 public class PriceCommand {
 
-    private Long id;
 
+
+    private Long id;
     @Min(1)
     @Max(100)
     private Double value;
     private String currency;
+
+
 }

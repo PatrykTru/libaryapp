@@ -43,6 +43,13 @@ public class AuthorController {
 
         return "author/newOrEdit";
     }
+
+    @GetMapping("/author/{id}/delete")
+    public String deleteAuthor(@PathVariable String id){
+
+        authorService.deleteById(Long.valueOf(id));
+        return "redirect:/";
+    }
     @PostMapping("/author")
     public String createOrUpdateAuthorHandling(@Valid @ModelAttribute("author") AuthorCommand authorCommand
             , BindingResult bindingResult) {
